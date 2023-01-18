@@ -1,5 +1,6 @@
 // ProductCard.js
 // ProductCard.js
+import { useReducer } from "react";
 
 function Product({ product }) {
   return (
