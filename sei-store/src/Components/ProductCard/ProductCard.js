@@ -2,7 +2,20 @@
 // ProductCard.js
 import { useReducer } from "react";
 
-function Product({ product }) {
+const dispatchReducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return (state += 1);
+    case "SUBTRACT":
+      return (state -= 1);
+    default:
+      return state;
+  }
+};
+
+function Product({ product, addToCart, index, action }) {
+  const [quantity, dispatch] = useReducer(dispatchReducer, 0);
+
   return (
     <li className="card">
       <img src={`${product.image}`} alt="" />
