@@ -27,8 +27,19 @@ function Product({ product, addToCart, index, action }) {
         </div>
       </div>
       <div className="quantity">
-        <button className="quantity-increase">+</button>
-        Quantity: 0<button className="quantity-decrease">-</button>
+        <button
+          className="quantity-increase"
+          onClick={() => dispatch({ type: "ADD" })}
+        >
+          +
+        </button>
+        Quantity: {quantity}
+        <button
+          className="quantity-decrease"
+          onClick={() => dispatch({ type: "SUBTRACT" })}
+        >
+          -
+        </button>
       </div>
     </li>
   );
