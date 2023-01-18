@@ -2,14 +2,6 @@ import { useState, useEffect } from "react";
 import Cart from "./Components/Cart/Cart";
 import ProductCard from "./Components/ProductCard/ProductCard";
 
-const sampleProduct = {
-  title: "Small Bag",
-  image:
-    "https://res.cloudinary.com/everlane/image/upload/c_scale/c_fill,dpr_2.0,f_auto,g_face:center,h_422,q_auto,w_auto:26:338/v1/i/4ab043d5_1b24.jpg",
-  price: 10,
-  salePrice: 5,
-};
-
 const useProductsApi = () => {
   const [products, setProducts] = useState([]);
 
@@ -32,7 +24,7 @@ function App() {
   console.log(products);
   const [cartOpen, setCartOpen] = useState(false);
   return (
-    <div className="App">
+    <>
       <header>
         <h1>SEIR Store</h1>
         <nav>
@@ -46,8 +38,19 @@ function App() {
         </nav>
       </header>
       <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
-      <ProductCard product={sampleProduct} />
-    </div>
+
+      <main>
+        <ul>
+          {products.length > 0 ? (
+            products.map((product, idx) => (
+              <ProductCard key={idx} product={product} />
+            ))
+          ) : (
+            <div>Loading...</div>
+          )}
+        </ul>
+      </main>
+    </>
   );
 }
 
