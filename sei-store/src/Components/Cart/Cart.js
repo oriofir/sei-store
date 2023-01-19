@@ -1,5 +1,7 @@
 // Cart.js
-const Cart = ({ cartOpen, setCartOpen }) => {
+import ProductCard from "../ProductCard/ProductCard";
+
+const Cart = ({ cartOpen, setCartOpen, cartItems, removeProductFromCart }) => {
   return (
     <div className={`cart ${cartOpen === true ? "open" : "closed"}`}>
       <div className="cart-header">
@@ -8,6 +10,15 @@ const Cart = ({ cartOpen, setCartOpen }) => {
           Close
         </button>
       </div>
+      {cartItems.map((product, i) => (
+        <ProductCard
+          addToCart={removeProductFromCart}
+          action={"remove"}
+          key={i}
+          index={i}
+          product={product}
+        />
+      ))}
     </div>
   );
 };
