@@ -62,7 +62,12 @@ function App() {
           </button>
         </nav>
       </header>
-      <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
+      <Cart
+        removeProductFromCart={removeProductFromCart}
+        cartOpen={cartOpen}
+        cartItems={cartItems}
+        setCartOpen={setCartOpen}
+      />
 
       <main>
         <ul>

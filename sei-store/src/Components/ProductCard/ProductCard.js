@@ -41,6 +41,13 @@ function Product({ product, addToCart, index, action }) {
           -
         </button>
       </div>
+      {addToCart && (
+        <>
+          <button className="btn btn-primary" onClick={() => addToCart(index)}>
+            {action ? "Remove from Cart" : "Add To Cart"}
+          </button>
+        </>
+      )}
     </li>
   );
 }
